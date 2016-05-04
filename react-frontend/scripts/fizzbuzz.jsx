@@ -42,50 +42,63 @@ var FizzBuzzForm = React.createClass({
 
 window.FizzBuzzDisplay = React.createClass({
   render: function(){
-    return(
-      <p>{this.props.responseData}</p>
-    )
+    if ($.isEmptyObject(this.props.responseData)){
+      return null;
+    }else{
+      return(
+        <div>
+          <blockquote>{this.props.responseData.result.output}</blockquote>
+          <p>Your number, {this.props.responseData.result.input}, returns the result "{this.props.responseData.result.output}." </p>
+        </div>
+      );
+    }
   }
 })
 
 window.FizzBuzzErrors = React.createClass({
+  getInitialState: function() {
+     return {responseErrors: []};
+  },
   render: function(){
-    var errorNodes = this.props.errors.map(function(error) {
+    if (this.props.errors.length < 1){
+      return null;
+    }else{
+      var errorNodes = this.props.errors.map(function(error) {
+        return (
+          <li key={error.field}>
+            <strong>{error.field}</strong> {error.message}
+          </li>
+        );
+      });
       return (
-        <li>
-          <strong>{error.field}</strong> {error.message}
-        </li>
+        <div className="panel panel-danger">
+          <div className="panel-heading">
+            <h3 className="panel-title">Your Submission had the following errors</h3>
+          </div>
+          <div className="panel-body">
+            <ul>
+              {errorNodes}
+            </ul>
+          </div>
+        </div>
       );
-    });
-    return (
-      <div className="panel panel-danger">
-        <div className="panel-title">
-          <h3>Your Submission had the following errors</h3>
-        </div>
-        <div className="panel-body">
-          <ul>
-            {errorNodes}
-          </ul>
-        </div>
-      </div>
-    );
+    }
   },
 })
 
 
 window.FizzBuzz = React.createClass({
   getInitialState: function() {
-     return {responseData: [], responseErrors: []};
-   },
+     return {responseData: {}, responseErrors: []};
+  },
   lookupFizzBuzz: function(query_body){
-    console.log(query_body);
     var lookupUrl = cubaBackendOrigin+'/fizz_buzz.json';
     $.ajax({
       url: lookupUrl,
       data: query_body,
       type: 'POST'
     }).done(function(data) {
-      this.setState({responseData: data});
+      this.setState({responseData: JSON.parse(data)});
     }.bind(this)).fail(function(xhr, status, err) {
       var responseData = JSON.parse(xhr.responseText)
       this.setState({responseErrors: responseData.errors});
@@ -97,7 +110,7 @@ window.FizzBuzz = React.createClass({
   },
   render: function() {
     return (
-    <div className="petition-lookup">
+    <div>
       <FizzBuzzErrors errors={this.state.responseErrors}/>
       <FizzBuzzForm effortLookupRef="effort-lookup" onFizzBuzzSubmit={this.handleFizzBuzzSubmit} />
       <FizzBuzzDisplay responseData={this.state.responseData} />
