@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
 gem 'cuba'
-# gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-cors', :require => 'rack/cors'

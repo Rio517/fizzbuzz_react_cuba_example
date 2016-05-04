@@ -10,7 +10,7 @@ THANKS_MESSAGE = 'Thanks for visiting. I hope you enjoyed this demonstration.'
 
 Cuba.define do
   on post do
-     on /fizz_buzz\/?\z/ do
+     on /fizz_buzz\.json\z/ do
       # NOTE: Cuba doesn't allow empty strings to be passed as default params.
       # We work around this by passing a proc to `on`. See this issue for more
       # details: https://github.com/soveran/cuba/issues/76
