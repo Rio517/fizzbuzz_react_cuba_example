@@ -1,5 +1,5 @@
-require './fizz_buzz_app'
 require 'rack/cors'
+require_relative 'fizz_buzz_app'
 
 use Rack::Cors do
   allow do

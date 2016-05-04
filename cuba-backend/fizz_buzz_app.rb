@@ -1,7 +1,7 @@
 require 'json'
 require 'cuba'
-require './fizz_buzz'
-require './fizz_buzz_presenter'
+require_relative 'fizz_buzz'
+require_relative 'fizz_buzz_presenter'
 
 GET_DISPLAY_MESSAGE = 'Welcome to Mario\'s FizzBuzz. The API endpoint is a POST
   to /fizz_buzz.json. Thanks for visiting. I hope you enjoyed this demonstration.'
