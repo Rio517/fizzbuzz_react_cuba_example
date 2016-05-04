@@ -57,7 +57,7 @@ window.FizzBuzzDisplay = React.createClass({
 
 window.FizzBuzzErrors = React.createClass({
   getInitialState: function() {
-     return {responseErrors: []};
+    return {responseErrors: []};
   },
   render: function(){
     if (this.props.errors.length < 1){
