@@ -22,12 +22,8 @@ class FizzBuzzPresenter
   def valid_presentation
     {
       result: {
-        number: fizz_buzz.input_integer,
-        result: fizz_buzz.result,
-      },
-      message: {
-        body: THANKS_MESSAGE,
-        author: INTERVIEWEE
+        input: fizz_buzz.input_integer,
+        output: fizz_buzz.result,
       }
     }
   end

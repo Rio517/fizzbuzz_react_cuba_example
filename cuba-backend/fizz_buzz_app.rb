@@ -3,10 +3,8 @@ require 'cuba'
 require './fizz_buzz'
 require './fizz_buzz_presenter'
 
-INTERVIEWEE = 'Mario Olivio Flores'
-THANKS_MESSAGE = 'Thanks for visiting. I hope you enjoyed this demonstration.'
-
-
+GET_DISPLAY_MESSAGE = 'Welcome to Mario\'s FizzBuzz. The API endpoint is a POST
+  to /fizz_buzz.json. Thanks for visiting. I hope you enjoyed this demonstration.'
 
 Cuba.define do
   on post do
@@ -28,7 +26,7 @@ Cuba.define do
   end
   on get do
     on root do
-      res.write "Welcome to Mario's FizzBuzz. #{THANKS_MESSAGE}\n\n - #{INTERVIEWEE}"
+      res.write GET_DISPLAY_MESSAGE
     end
     on /.+/ do
       res.redirect '/'
