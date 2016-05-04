@@ -1,9 +1,9 @@
 # Mario's FizzBuzz Example w/ React
 
-This is an (admittedly contrived) example fizzbuzz implementation using:
+This is an (admittedly contrived) example FizzBuzz implementation using:
 
 * [React](https://facebook.github.io/react/) (UDM versions to minimize dependencies)
-* [Cuba](https://github.com/soveran/cuba) (ruby micro framework)
+* [Cuba](https://github.com/soveran/cuba) (Ruby micro framework)
 
 The backend and frontend are independent, and both need to be run behind HTTP for CORS to work.
 
