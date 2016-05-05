@@ -7,11 +7,20 @@ This is an (admittedly contrived) example FizzBuzz implementation using:
 
 The backend and frontend are independent, and both need to be run behind HTTP for CORS to work.
 
+## Setup
+
+Make sure your run `bundle install`
+
 ## Running
 
 You can run both apps by:
 
 * Cuba - standard app start, `rackup cuba-backend/config.ru`
 * reach-frontend - you can install `http-server`
-  1 `npm install -g http-server`
-  2 `http-server react-frontend`
+  * `npm install -g http-server`
+  * `http-server react-frontend`
+
+
+## Testing
+
+```cutest test/**/*.rb```
