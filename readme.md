@@ -9,7 +9,7 @@ The backend and frontend are independent, and both need to be run behind HTTP fo
 
 ## Setup
 
-Make sure your run `bundle install`
+Make sure you run `bundle install`
 
 ## Running
 
