@@ -16,7 +16,7 @@ Make sure you run `bundle install`
 You can run both apps by:
 
 * Cuba - standard app start, `rackup cuba-backend/config.ru`
-* reach-frontend - you can install `http-server`
+* react-frontend - you can install `http-server`
   * `npm install -g http-server`
   * `http-server react-frontend`
 
